@@ -1,12 +1,19 @@
 import { useState } from "react";
 import logo from "../../assets/logo.png";
-import { HeaderContainer } from "./styles";
+import * as S from "./styles";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleMenuClick = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <HeaderContainer>
-      <img src={logo} alt="Logo" />
-    </HeaderContainer>
+    <S.HeaderContainer>
+      <S.Logo src={logo} alt="Logo" />
+      <S.MenuIcon open={isOpen} onClick={handleMenuClick} />
+    </S.HeaderContainer>
   );
 };
 
